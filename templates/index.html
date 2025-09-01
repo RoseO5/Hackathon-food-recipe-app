@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Food Recipes App</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <h1>Welcome to Food Recipes App</h1>
+
+  <form method="POST" action="/search">    <label for="food1">Choose first food:</label>
+    <select name="food1" id="food1">
+      <option>Chicken</option>
+      <option>Fish</option>
+      <option>Bread</option>
+      <option>Eggs</option>
+      <option>Sardines</option>
+      <option>Beans</option>
+      <option>Tomatoes</option>
+      <option>Beef</option>
+      <option>Pork</option>
+      <option>Rice</option>
+      <option>Salad</option>
+      <option>Prawns</option>
+    </select>
+
+    <label for="food2">Choose second food:</label>
+    <select name="food2" id="food2">
+      <option>Chicken</option>
+      <option>Fish</option>
+      <option>Bread</option>
+      <option>Eggs</option>
+      <option>Sardines</option>
+      <option>Beans</option>
+      <option>Tomatoes</option>
+      <option>Beef</option>
+      <option>Pork</option>
+      <option>Rice</option>
+      <option>Salad</option>
+      <option>Prawns</option>
+    </select>
+
+    <button type="submit">Find Recipes</button>
+  </form>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

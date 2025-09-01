@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Upgrade to Pro - Food Recipes App</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <h1>Upgrade to Pro (mock)</h1>
+  <p>Click the button below to simulate Pro upgrade for 30 days.</p>
+  <form method="POST">
+    <button type="submit">Upgrade to Pro</button>
+  </form>
+  <p><a href="{{ url_for('home') }}">Back to Home</a></p>
+</body>
+</html>

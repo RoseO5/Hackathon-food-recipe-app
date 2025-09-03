@@ -1,20 +1,23 @@
-from flask import Flask, request, jsonify
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+import os
 
-# Define the Flask app
 app = Flask(__name__)
 
-# Simple GET route (test in browser at http://127.0.0.1:5000/)
-@app.route("/", methods=["GET"])
+# Use Heroku Postgres database
+db_url = os.environ.get("DATABASE_URL")
+if db_url and db_url.startswith("postgres://"):
+    db_url = db_url.replace("postgres://", "postgresql://", 1)
+
+app.config["SQLALCHEMY_DATABASE_URI"] = db_url or "sqlite:///local.db"
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+
+db = SQLAlchemy(app)
+
+class Recipe(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False)
+
+@app.route("/")
 def home():
-    return jsonify({"message": "Welcome to the Recipe API!"})
-
-# POST route for recipes
-@app.route("/recipes", methods=["POST"])
-def recipes():
-    data = request.get_json()  # get JSON from request body
-    if not data:
-        return jsonify({"error": "No data provided"}), 400
-    return jsonify({"message": "Recipe added successfully!", "data": data})
-
-if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=5000)
+    return "Flask app with Postgres is running on Heroku!"

@@ -1,7 +1,4 @@
-cat > requirements.txt <<'REQ'
-flask
-flask_sqlalchemy
-psycopg2-binary
-gunicorn
-REQ3
-
+Flask==2.3.3
+Flask-SQLAlchemy==3.1.1
+gunicorn==21.2.0
+psycopg2-binary==2.9.9

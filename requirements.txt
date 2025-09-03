@@ -1,4 +1,7 @@
-Flask
-gunicorn
+cat > requirements.txt <<'REQ'
+flask
+flask_sqlalchemy
 psycopg2-binary
-Flask-SQLAlchemy
+gunicorn
+REQ3
+

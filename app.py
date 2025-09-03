@@ -20,4 +20,4 @@ class Recipe(db.Model):
 
 @app.route("/")
 def home():
-    return "Flask app with Postgres is running on Heroku!"
+    return "Food Recipes App with Postgres is running on Railway ✅"

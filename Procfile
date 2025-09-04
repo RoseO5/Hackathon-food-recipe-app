@@ -1,1 +1,1 @@
-printf "web: gunicorn app:app\n" > Procfile
+web: gunicorn app:app

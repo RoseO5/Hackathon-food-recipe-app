@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Suggestions</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+        }
+        .header {
+            text-align: center;
+            padding: 20px 0;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        .recipe-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 5px solid #4CAF50;
+        }
+        .recipe-title {
+            color: #4CAF50;
+            margin-top: 0;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+        .ingredients {
+            background-color: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+        .instructions {
+            margin: 15px 0;
+        }
+        .back-button {
+            display: inline-block;
+            background-color: #666;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .back-button:hover {
+            background-color: #444;
+        }
+        .no-recipe {
+            text-align: center;
+            padding: 40px;
+            background-color: #fff3cd;
+            border-radius: 8px;
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Recipe Suggestions</h1>
+    </div>
+
+    <div style="text-align: center; margin-bottom: 30px;">
+        <h2>Recipes with {{ first_food }} and {{ second_food }}</h2>
+    </div>
+
+    <!-- Recipe combinations based on selected foods -->
+    {% if first_food == 'Chicken' and second_food == 'Rice' %}
+        <div class="recipe-card">
+            <h3 class="recipe-title">Chicken and Rice Casserole</h3>
+            <div class="ingredients">
+                <strong>Ingredients:</strong>
+                <ul>
+                    <li>2 cups cooked rice</li>
+                    <li>2 cups cooked chicken, shredded</li>
+                    <li>1 can cream of mushroom soup</li>
+                    <li>1/2 cup milk</li>
+                    <li>1/2 cup frozen peas and carrots</li>
+                    <li>1/4 cup chopped onions</li>
+                    <li>Salt and pepper to taste</li>
+                </ul>
+            </div>
+            <div class="instructions">
+                <strong>Instructions:</strong>
+                <p>Preheat oven to 350°F. Mix all ingredients in a bowl. Transfer to a greased casserole dish. Bake for 25-30 minutes until heated through. Let stand for 5 minutes before serving.</p>
+            </div>
+        </div>
+    {% elif first_food == 'Chicken' and second_food == 'Salad' %}
+        <div class="recipe-card">
+            <h3 class="recipe-title">Grilled Chicken Salad</h3>
+            <div class="ingredients">
+                <strong>Ingredients:</strong>
+                <ul>
+                    <li>2 chicken breasts</li>
+                    <li>6 cups mixed greens</li>
+                    <li>1 cucumber, sliced</li>
+                    <li>2 tomatoes, chopped</li>
+                    <li>1/4 red onion, sliced</li>
+                    <li>Olive oil and lemon dressing</li>
+                </ul>
+            </div>
+            <div class="instructions">
+                <strong>Instructions:</strong>
+                <p>Season chicken with salt, pepper, and olive oil. Grill for 6-7 minutes per side until cooked through. Let rest for 5 minutes, then slice. Arrange salad greens and vegetables on plates. Top with sliced chicken and drizzle with dressing.</p>
+            </div>
+        </div>
+    {% elif first_food == 'Fish' and second_food == 'Rice' %}
+        <div class="recipe-card">
+            <h3 class="recipe-title">Teriyaki Salmon with Rice</h3>
+            <div class="ingredients">
+                <strong>Ingredients:</strong>
+                <ul>
+                    <li>2 salmon fillets</li>
+                    <li>2 cups cooked rice</li>
+                    <li>1/2 cup teriyaki sauce</li>
+                    <li>1 tbsp sesame oil</li>
+                    <li>1 tsp sesame seeds</li>
+                    <li>2 green onions, sliced</li>
+                </ul>
+            </div>
+            <div class="instructions">
+                <strong>Instructions:</strong>
+                <p>Heat sesame oil in a pan. Add salmon fillets and cook for 4-5 minutes per side. Brush with teriyaki sauce during the last 2 minutes of cooking. Serve over rice, garnish with sesame seeds and green onions.</p>
+            </div>
+        </div>
+    {% elif first_food == 'Eggs' and second_food == 'Tomatoes' %}
+        <div class="recipe-card">
+            <h3 class="recipe-title">Shakshuka</h3>
+            <div class="ingredients">
+                <strong>Ingredients:</strong>
+                <ul>
+                    <li>4 large eggs</li>
+                    <li>2 cups chopped tomatoes</li>
+                    <li>1/2 onion, diced</li>
+                    <li>2 cloves garlic, minced</li>
+                    <li>1 bell pepper, diced</li>
+                    <li>1 tsp paprika</li>
+                    <li>1/2 tsp cumin</li>
+                    <li>Olive oil</li>
+                    <li>Fresh parsley</li>
+                </ul>
+            </div>
+            <div class="instructions">
+                <strong>Instructions:</strong>
+                <p>Heat olive oil in a skillet. Add onions, bell pepper, and garlic. Cook until soft. Add tomatoes, paprika, and cumin. Simmer for 10 minutes. Make wells in the mixture and crack eggs into them. Cover and cook for 5-7 minutes until eggs are set. Garnish with parsley.</p>
+            </div>
+        </div>
+    {% elif first_food == 'Beef' and second_food == 'Beans' %}
+        <div class="recipe-card">
+            <h3 class="recipe-title">Texas Chili</h3>
+            <div class="ingredients">
+                <strong>Ingredients:</strong>
+                <ul>
+                    <li>1 lb ground beef</li>
+                    <li>2 cans kidney beans</li>
+                    <li>1 can diced tomatoes</li>
+                    <li>1 onion, chopped</li>
+                    <li>3 cloves garlic, minced</li>
+                    <li>2 tbsp chili powder</li>
+                    <li>1 tsp cumin</li>
+                    <li>Salt and pepper</li>
+                </ul>
+            </div>
+            <div class="instructions">
+                <strong>Instructions:</strong>
+                <p>Brown ground beef with onions and garlic. Drain excess fat. Add beans, tomatoes, and spices. Simmer for at least 30 minutes, preferably 1-2 hours. Adjust seasoning and serve hot.</p>
+            </div>
+        </div>
+    {% elif first_food == 'Prawns' and second_food == 'Rice' %}
+        <div class="recipe-card">
+            <h3 class="recipe-title">Prawn Fried Rice</h3>
+            <div class="ingredients">
+                <strong>Ingredients:</strong>
+                <ul>
+                    <li>1 cup cooked rice (preferably day-old)</li>
+                    <li>1/2 lb prawns, peeled and deveined</li>
+                    <li>2 eggs, beaten</li>
+                    <li>1/2 cup mixed vegetables</li>
+                    <li>2 green onions, chopped</li>
+                    <li>2 tbsp soy sauce</li>
+                    <li>1 tbsp sesame oil</li>
+                </ul>
+            </div>
+            <div class="instructions">
+                <strong>Instructions:</strong>
+                <p>Heat oil in a wok or large skillet. Scramble eggs and set aside. Add prawns and cook until pink. Add rice and break up clumps. Add vegetables and cook until tender. Return eggs to wok. Add soy sauce and mix well. Stir in green onions and sesame oil before serving.</p>
+            </div>
+        </div>
+    {% elif first_food == 'Sardines' and second_food == 'Bread' %}
+        <div class="recipe-card">
+            <h3 class="recipe-title">Sardine Toast</h3>
+            <div class="ingredients">
+                <strong>Ingredients:</strong>
+                <ul>
+                    <li>1 can sardines in olive oil</li>
+                    <li>4 slices bread, toasted</li>
+                    <li>1/2 avocado, mashed</li>
+                    <li>1 lemon, juiced</li>
+                    <li>1/4 red onion, thinly sliced</li>
+                    <li>Fresh dill or parsley</li>
+                </ul>
+            </div>
+            <div class="instructions">
+                <strong>Instructions:</strong>
+                <p>Toast bread until golden. Mash avocado with lemon juice and spread on toast. Drain sardines and place on top of avocado. Arrange red onion slices over sardines. Garnish with fresh herbs and a drizzle of the sardine oil.</p>
+            </div>
+        </div>
+    {% elif first_food == 'Beans' and second_food == 'Rice' %}
+        <div class="recipe-card">
+            <h3 class="recipe-title">Cuban Black Beans and Rice</h3>
+            <div class="ingredients">
+                <strong>Ingredients:</strong>
+                <ul>
+                    <li>1 cup dried black beans (or 2 cans)</li>
+                    <li>1 cup rice</li>
+                    <li>1 onion, chopped</li>
+                    <li>2 cloves garlic, minced</li>
+                    <li>1 green pepper, chopped</li>
+                    <li>2 tbsp olive oil</li>
+                    <li>1 tsp cumin</li>
+                    <li>Oregano</li>
+                </ul>
+            </div>
+            <div class="instructions">
+                <strong>Instructions:</strong>
+                <p>Cook beans according to package directions. Sauté onion, pepper, and garlic in olive oil. Add cooked beans, cumin, and oregano. Simmer for 15 minutes. Cook rice separately. Serve beans over rice.</p>
+            </div>
+        </div>
+    {% elif first_food == second_food %}
+        <div class="recipe-card">
+            <h3 class="recipe-title">Recipe with {{ first_food }}</h3>
+            <div class="ingredients">
+                <strong>Ingredients:</strong>
+                <ul>
+                    <li>{{ first_food }}</li>
+                    <li>Additional ingredients based on {{ first_food|lower }}</li>
+                </ul>
+            </div>
+            <div class="instructions">
+                <strong>Instructions:</strong>
+                <p>Prepare a delicious dish featuring {{ first_food }} as the main ingredient. Season to taste and enjoy!</p>
+            </div>
+        </div>
+    {% else %}
+        <div class="no-recipe">
+            <h3>No specific recipe found</h3>
+            <p>We don't have a specific recipe for {{ first_food }} and {{ second_food }} combination, but here are some general ideas:</p>
+            <ul style="text-align: left; display: inline-block;">
+                <li>Try sautéing both ingredients together with complementary spices</li>
+                <li>Create a stir-fry or casserole using both ingredients</li>
+                <li>Make a salad or sandwich combining both foods</li>
+                <li>Consider what flavors would complement both ingredients</li>
+            </ul>
+            <p>Use your creativity to make a delicious meal!</p>
+        </div>
+    {% endif %}
+
+    <div style="text-align: center; margin-top: 30px;">
+        <a href="{{ url_for('home') }}" class="back-button">← Back to Food Selection</a>
+    </div>
+</body>
+</html>

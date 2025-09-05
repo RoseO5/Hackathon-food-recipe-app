@@ -59,8 +59,14 @@ def check_and_downgrade(user):
 # Routes
 @app.route("/")
 def home():
+    # List of food options for the dropdowns
+    foods = [
+        "Chicken", "Fish", "Bread", "Eggs", "Sardines", 
+        "Beans", "Tomatoes", "Beef", "Pork", "Rice", 
+        "Salad", "Prawns"
+    ]
     # Show your real UI
-    return render_template("index.html")
+    return render_template("index.html", foods=foods)
 
 @app.route("/signup", methods=["GET", "POST"])
 def signup():
@@ -123,6 +129,22 @@ def upgrade():
             flash("Pro subscription activated for 30 days!")
         return redirect(url_for("home"))
     return render_template("upgrade.html")
+
+# New route to handle recipe search
+@app.route("/recipes", methods=["POST"])
+def find_recipes():
+    first_food = request.form.get("first_food")
+    second_food = request.form.get("second_food")
+    
+    if not first_food or not second_food:
+        flash("Please select both foods.")
+        return redirect(url_for("home"))
+    
+    # Here you would typically search your database for recipes
+    # For now, we'll just pass the selected foods to a results template
+    return render_template("recipes.html", 
+                         first_food=first_food, 
+                         second_food=second_food)
 
 # Run locally (not used on Railway)
 if __name__ == "__main__":
